@@ -1,0 +1,28 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h1 class="center">Create Trip Type</h1>
+            <button mat-raised-button color="primary" type="submit" (click)="createTripType()">Save Trip Type</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Trip Type Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <p style="background-color:#ECECEC;">
+                            <mat-slide-toggle formControlName="status">Status</mat-slide-toggle>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

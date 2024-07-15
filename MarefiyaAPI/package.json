@@ -1,0 +1,39 @@
+{
+  "name": "marefiya",
+  "version": "1.0.0",
+  "description": "Is a ride-sharing service where multiple passengers share a single vehicle for part of their journey, reducing the overall cost by splitting the fare. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set NODE_ENV=production&& node app.js",
+    "dev": "set NODE_ENV=development&& nodemon app.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emmonmoses/marefiya.git"
+  },
+  "author": "marefiya team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emmonmoses/marefiya/issues"
+  },
+  "homepage": "https://github.com/emmonmoses/marefiya#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.1",
+    "jsonwebtoken": "^9.0.2",
+    "memory-cache": "^0.2.0",
+    "moment-timezone": "^0.5.45",
+    "mongoose": "^8.4.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.1"
+  }
+}

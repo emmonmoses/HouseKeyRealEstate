@@ -1,0 +1,99 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Route</mat-card-title>
+        <a mat-flat-button color="primary" [routerLink]="['/ui-components/create-route']" class="download-button">
+        Create Route
+      </a>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- table-striped -->
+        <div class="table-responsive overflow-auto mt-2">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <!-- <th scope="col">Logo</th> -->
+                        <th scope="col">name</th>
+                        <th scope="col">price</th>
+                        <th scope="col">Pickup Location</th>
+                        <th scope="col">Drop of Location</th>
+                        <th scope="col">Vehicle</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let route of routes; let i = index">
+                        <th scope="row">{{ (page - 1) * pageSize + (i + 1) }}</th>
+                        <td>{{ route.name }}</td>
+                        <td>{{ route.price }}</td>
+                        <td>{{ route.pickupLocation.city }}</td>
+                        <td>{{ route.dropLocation.city }}</td>
+                        <td>{{ route.vehicle.vehicleType }}</td>
+                        <td>
+                            <i-tabler *ngIf="route.status" name="circle-check" class="text-success"></i-tabler>
+                            <i-tabler *ngIf="!route.status" name="circle-x" class="text-danger"></i-tabler>
+                        </td>
+                        <td style="padding: 0;">
+                            <div class="button-group">
+                                <!-- View Icon -->
+                                <a mat-icon-button class="btn btn-outline-primary me-1" matTooltip="edit" (click)="editRoute(route)">
+                                    <i-tabler class="routeIcon" name="pencil" matListItemIcon></i-tabler>
+                                </a>
+
+                                <!-- Update Icon -->
+                                <a mat-icon-button class="btn btn-outline-success me-1" matTooltip="View" (click)="view(route)">
+                                    <i-tabler class="routeIcon" name="eye" matListItemIcon></i-tabler>
+                                </a>
+
+                                <!-- Delete Icon -->
+                                <a mat-icon-button class="btn btn-outline-danger me-1" matTooltip="delete" (click)="delete(route)">
+                                    <i-tabler class="routeIcon" name="trash" matListItemIcon></i-tabler>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 20px" *ngIf="routes?.length! <= 0">
+                No Route found
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #viewModal let-modal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalLabel">Route Details</h5>
+                <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Name - {{ route!.name }}</h4>
+                        <p>Price - {{ route!.price }}</p>
+                        <p>Pickup Location - {{ route!.pickupLocation.city }}</p>
+                        <p>Drop of Location - {{ route!.dropLocation.city }}</p>
+                        <p>Drop of Location - {{ route!.dropLocation.city }}</p>
+                        <p>Vehicle - {{ route!.vehicle.vehicleType }}</p>
+                        <p>Vehicle Model - {{ route!.vehicle.vehicleModel }}</p>
+                        <p>Vehicle Capacity - {{ route!.vehicle.vehicleCapacity }}</p>
+                        <p>
+                            Created Date: {{ formatDateToCustomFormat(route!.createdAt!) }}
+                        </p>
+                        <p *ngIf="route!.status">
+                            Status:
+                            <span class="badge bg-success">Active</span>
+                        </p>
+                        <p *ngIf="!route!.status">
+                            Status:
+                            <span class="badge bg-danger">InActive</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

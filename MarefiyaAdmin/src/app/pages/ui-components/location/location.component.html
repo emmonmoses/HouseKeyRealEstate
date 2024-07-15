@@ -1,0 +1,90 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Location</mat-card-title>
+        <a mat-flat-button color="primary" [routerLink]="['/ui-components/create-location']" class="download-button">
+        Create Location
+      </a>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- table-striped -->
+        <div class="table-responsive overflow-auto mt-2">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <!-- <th scope="col">Logo</th> -->
+                        <th scope="col">City</th>
+                        <th scope="col">Subcity</th>
+                        <th scope="col">Woreda</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let location of locations; let i = index">
+                        <th scope="row">{{ (page - 1) * pageSize + (i + 1) }}</th>
+                        <td>{{ location.city }}</td>
+                        <td>{{ location.subcity }}</td>
+                        <td>{{ location.woreda }}</td>
+                        <td>
+                            <i-tabler *ngIf="location.status" name="circle-check" class="text-success"></i-tabler>
+                            <i-tabler *ngIf="!location.status" name="circle-x" class="text-danger"></i-tabler>
+                        </td>
+                        <td style="padding: 0;">
+                            <div class="button-group">
+                                <!-- View Icon -->
+                                <a mat-icon-button class="btn btn-outline-primary me-1" matTooltip="edit" (click)="editLocation(location)">
+                                    <i-tabler class="routeIcon" name="pencil" matListItemIcon></i-tabler>
+                                </a>
+
+                                <!-- Update Icon -->
+                                <a mat-icon-button class="btn btn-outline-success me-1" matTooltip="View" (click)="view(location)">
+                                    <i-tabler class="routeIcon" name="eye" matListItemIcon></i-tabler>
+                                </a>
+
+                                <!-- Delete Icon -->
+                                <a mat-icon-button class="btn btn-outline-danger me-1" matTooltip="delete" (click)="delete(location)">
+                                    <i-tabler class="routeIcon" name="trash" matListItemIcon></i-tabler>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 20px" *ngIf="locations?.length! <= 0">
+                No Location found
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #viewModal let-modal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalLabel">Location Details</h5>
+                <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>City - {{ location!.city }}</h4>
+                        <p>Subcity - {{ location!.subcity }}</p>
+                        <p>Wereda - {{ location!.woreda }}</p>
+                        <p>
+                            Created Date: {{ formatDateToCustomFormat(location!.createdAt!) }}
+                        </p>
+                        <p *ngIf="location!.status">
+                            Status:
+                            <span class="badge bg-success">Active</span>
+                        </p>
+                        <p *ngIf="!location!.status">
+                            Status:
+                            <span class="badge bg-danger">InActive</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,173 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+:root {
+    --header-height: 3rem;
+    /*========== Colors ==========*/
+    --hue: 45;
+    --sat: 98%;
+    --first-color: #2236EB;
+    --first-color-light: hsl(var(--hue), var(--sat), 85%);
+    --first-color-lighten: hsl(var(--hue), var(--sat), 80%);
+    --first-color-alt: hsl(var(--hue), var(--sat), 53%);
+    --title-color: hsl(var(--hue), 4%, 15%);
+    --text-color: hsl(var(--hue), 4%, 35%);
+    --text-color-light: hsl(var(--hue), 4%, 65%);
+    --body-color: hsl(var(--hue), 0%, 100%);
+    --container-color: #FFF;
+    --scroll-bar-color: hsl(var(--hue), 4%, 85%);
+    --scroll-thumb-color: hsl(var(--hue), 4%, 75%);
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 2rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    /*========== Font weight ==========*/
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    /*========== Margenes ==========*/
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //min-height: 100vh;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    /* Adjust max-width as needed */
+    /* background-color: #ffffff; */
+    /* Removed background color */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.save-button {
+    text-decoration: none;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow rows to wrap */
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-field {
+    flex: 0 0 calc(25% - 10px);
+    /* Four columns per row with spacing */
+    margin-bottom: 10px;
+    /* Adjust vertical spacing */
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .form-field {
+        flex: 0 0 100%;
+        /* Stack fields in one column on smaller screens */
+        margin-bottom: 20px;
+    }
+}
+
+.mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-button {
+    margin-left: auto;
+}
+
+.mat-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-button {
+    margin-left: auto;
+}
+
+.table-responsive {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    /* Round border */
+    overflow: hidden;
+    /* Ensures the border radius is applied */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Add some shadow for better look */
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+    /* Prevent text wrapping in cells */
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Adjust the gap between buttons as needed */
+}
+
+
+/* Ensure the buttons don't exceed the cell height */
+
+.btn {
+    padding: 0.375rem 0.75rem;
+    /* Adjust padding as needed */
+}
+
+@media (max-width: 768px) {
+    .table th,
+    .table td {
+        white-space: normal;
+        /* Allow text wrapping on smaller screens */
+    }
+}

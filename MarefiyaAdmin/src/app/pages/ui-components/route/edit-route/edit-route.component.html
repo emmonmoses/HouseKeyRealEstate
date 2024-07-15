@@ -1,0 +1,68 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h1 class="center">Edit Route</h1>
+            <button mat-raised-button color="primary" type="submit" (click)="updateRoute()">Save Route</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Route Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Price</mat-label>
+                            <input matInput formControlName="price" type="number">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field>
+                            <mat-label>Vehicle Type</mat-label>
+                            <mat-select placeholder="Role" formControlName="vehicleTypeId" (selectionChange)="onRouteChange($event)">
+                                <mat-option *ngFor="let vechicle of vehicles" [value]="vechicle.id">
+                                    {{ vechicle.vehicleType }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-row">
+                        <mat-form-field>
+                            <mat-label>Pickup Location</mat-label>
+                            <mat-select placeholder="Role" formControlName="pickupLocationId" (selectionChange)="onPickupChange($event)">
+                                <mat-option *ngFor="let location of locations" [value]="location.id">
+                                    {{ location.city }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-field">
+                        <mat-form-field>
+                            <mat-label>Drop Off Location</mat-label>
+                            <mat-select placeholder="Role" formControlName="dropLocationId" (selectionChange)="onDrop0fLocationChange($event)">
+                                <mat-option *ngFor="let location of locations" [value]="location.id">
+                                    {{ location.city }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <p style="background-color:#ECECEC;">
+                            <mat-slide-toggle formControlName="status">Status</mat-slide-toggle>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

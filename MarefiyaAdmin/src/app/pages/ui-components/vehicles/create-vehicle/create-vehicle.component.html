@@ -1,0 +1,50 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h1 class="center">Create Vehicle</h1>
+            <button mat-raised-button color="primary" type="submit" (click)="createVehicle()">Save Vehicle</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Vehicle Type</mat-label>
+                            <input matInput formControlName="vehicleType">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Vehicle Capacity</mat-label>
+                            <input matInput formControlName="vehicleCapacity" type="number">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Vehicle Registration</mat-label>
+                            <input matInput formControlName="vehicleRegistration">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Vehicle Model</mat-label>
+                            <input matInput formControlName="vehicleModel">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <p style="background-color:#ECECEC;">
+                            <mat-slide-toggle formControlName="status">Status</mat-slide-toggle>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

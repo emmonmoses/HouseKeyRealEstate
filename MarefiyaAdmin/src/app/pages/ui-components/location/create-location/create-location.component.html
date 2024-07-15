@@ -1,0 +1,43 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h1 class="center">Create Location</h1>
+            <button mat-raised-button color="primary" type="submit" (click)="createLocation()">Save Location</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>City </mat-label>
+                            <input matInput formControlName="city">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Subcity</mat-label>
+                            <input matInput formControlName="subcity">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Wereda</mat-label>
+                            <input matInput formControlName="woreda">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <p style="background-color:#ECECEC;">
+                            <mat-slide-toggle formControlName="status">Status</mat-slide-toggle>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

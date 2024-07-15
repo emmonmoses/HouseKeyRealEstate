@@ -1,0 +1,108 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Drivers</mat-card-title>
+        <a mat-flat-button color="primary" [routerLink]="['/ui-components/create-driver']" class="download-button">
+        Create Driver
+      </a>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- table-striped -->
+        <div class="table-responsive overflow-auto mt-2">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <!-- <th scope="col">Logo</th> -->
+                        <th scope="col">Driver Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Route </th>
+                        <th scope="col">Timing</th>
+                        <th scope="col">Trip Type </th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let driver of drivers; let i = index">
+                        <th scope="row">{{ (page - 1) * pageSize + (i + 1) }}</th>
+                        <td>{{ driver.name }}</td>
+                        <td>{{ driver.phone.code }}{{ driver.phone.number }}</td>
+                        <td>{{ driver.code }}</td>
+                        <td>{{ driver.route }}</td>
+                        <td>{{ driver.timing }}</td>
+                        <td>{{ driver.tripType }}</td>
+                        <td>
+                            <i-tabler *ngIf="driver.status" name="circle-check" class="text-success"></i-tabler>
+                            <i-tabler *ngIf="!driver.status" name="circle-x" class="text-danger"></i-tabler>
+                        </td>
+                        <td style="padding: 0;">
+                            <div class="button-group">
+                                <!-- View Icon -->
+                                <a mat-icon-button class="btn btn-outline-primary me-1" matTooltip="edit" (click)="editDriver(driver)">
+                                    <i-tabler class="routeIcon" name="pencil" matListItemIcon></i-tabler>
+                                </a>
+
+                                <!-- Update Icon -->
+                                <a mat-icon-button class="btn btn-outline-success me-1" matTooltip="View" (click)="view(driver)">
+                                    <i-tabler class="routeIcon" name="eye" matListItemIcon></i-tabler>
+                                </a>
+
+                                <!-- Delete Icon -->
+                                <a mat-icon-button class="btn btn-outline-danger me-1" matTooltip="delete" (click)="delete(driver)">
+                                    <i-tabler class="routeIcon" name="trash" matListItemIcon></i-tabler>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 20px" *ngIf="drivers?.length! <= 0">
+                No Drivers found
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #viewModal let-modal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalLabel">Drivers Details</h5>
+                <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Driver Name: {{ driver!.name }}</h4>
+                        <p>Driver Code: {{ driver!.code }}</p>
+                        <p>Driver Phone: {{ driver!.phone.code }}{{ driver!.phone.number }}</p>
+                        <p>Driver Email: {{ driver!.email }}</p>
+                        <p>Driver Address: {{ driver!.address.city }} | {{ driver!.address.region }}</p>
+                        <p>Driver Role: {{ driver!.role }}</p>
+                        <p>Driver Route: {{ driver!.route }}</p>
+                        <p>Driver Timing: {{ driver!.timing }}</p>
+                        <p>Driver Trip Type: {{ driver!.tripType }}</p>
+                        <p>
+                            Plate Number: {{ driver!.plateNumber}}
+                        </p>
+                        <p>
+                            Plate Number Code: {{ driver!.plateNumberCode }}
+                        </p>
+                        <p>
+                            Created Date: {{ formatDateToCustomFormat(driver!.createdAt!) }}
+                        </p>
+                        <p *ngIf="driver!.status">
+                            Status:
+                            <span class="badge bg-success">Active</span>
+                        </p>
+                        <p *ngIf="!driver!.status">
+                            Status:
+                            <span class="badge bg-danger">InActive</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

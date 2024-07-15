@@ -1,0 +1,71 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h1 class="center">Edit Company</h1>
+            <button mat-raised-button color="primary" type="submit" (click)="updateCompany()">Save Change</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Company Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" type="password" placeholder="******">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput placeholder="+251..." formControlName="phoneNumber">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-row">
+                        <mat-form-field>
+                            <mat-label>Role</mat-label>
+                            <mat-select placeholder="Role" formControlName="roleId" (selectionChange)="onRoleChange($event)">
+                                <mat-option *ngFor="let role of roles" [value]="role.id">
+                                    {{ role.name }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>City</mat-label>
+                            <input matInput formControlName="city">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Region</mat-label>
+                            <input matInput formControlName="region">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field">
+                        <mat-select-country appearance="fill" formControlName="country" (onCountrySelected)="onCountrySelected($event)">
+                        </mat-select-country>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

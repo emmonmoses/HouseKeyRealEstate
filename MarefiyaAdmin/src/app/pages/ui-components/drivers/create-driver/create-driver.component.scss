@@ -1,0 +1,30 @@
+.form-grid {
+    display: grid;
+    grid-template-columns: 0.3fr;
+    gap: 16px;
+    margin-top: 21px;
+}
+
+.form-grids {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 16px;
+    /* Space between items */
+    margin-bottom: 16px;
+    margin-top: 21px;
+    /* Space between grid and buttons */
+}
+
+.grid-item {
+    margin-bottom: 16px;
+    /* Optional: additional spacing between fields if needed */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    grid-column: span 3;
+    /* Make buttons span all columns */
+}
