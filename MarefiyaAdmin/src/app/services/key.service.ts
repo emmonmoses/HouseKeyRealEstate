@@ -11,6 +11,7 @@ export class KeyService {
   USER_TYPE = 'user type';
   AVATAR_KEY = 'avatar';
   USERID_KEY = 'userID';
+  CODE_KEY = 'code';
 
   SETTINGS_KEY = 'settings';
 
@@ -31,4 +32,8 @@ export class KeyService {
   TIMING_KEY = 'timing';
   ROUTING_KEY = 'routing';
   DRIVER_KEY = 'driver';
+  AGENT_OBJECT_KEY = 'agentObjectKey';
+  FEETYPE_OBJECT_KEY = 'feetypeobjectkey';
+  BEDROOM_OBJCT_KEY = 'bedroomobjectkey';
+  CUSTOMER_OBJECT_KEY = 'customerkey';
 }

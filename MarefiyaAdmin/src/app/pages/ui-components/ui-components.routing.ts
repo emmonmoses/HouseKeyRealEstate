@@ -30,6 +30,18 @@ import { EditDriverComponent } from './drivers/edit-driver/edit-driver.component
 import { EditTripSubscriptionComponent } from './trip-subscription/edit-trip-subscription/edit-trip-subscription.component';
 import { CreateTripSubscriptionComponent } from './trip-subscription/create-trip-subscription/create-trip-subscription.component';
 import { TripSubscriptionComponent } from './trip-subscription/trip-subscription.component';
+import { AgentsComponent } from './agents/agents.component';
+import { CreateAgentComponent } from './agents/create-agent/create-agent.component';
+import { EditAgentComponent } from './agents/edit-agent/edit-agent.component';
+import { FeeTypeComponent } from './fee-type/fee-type.component';
+import { CreateFeeTypeComponent } from './fee-type/create-fee-type/create-fee-type.component';
+import { EditFeeTypeComponent } from './fee-type/edit-fee-type/edit-fee-type.component';
+import { BedroomComponent } from './bedroom/bedroom.component';
+import { CreateBedroomComponent } from './bedroom/create-bedroom/create-bedroom.component';
+import { EditBedroomComponent } from './bedroom/edit-bedroom/edit-bedroom.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
+import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -152,6 +164,54 @@ export const UiComponentsRoutes: Routes = [
         path: 'tooltips',
         component: AppTooltipsComponent,
       },
+      {
+        path: 'agent',
+        component: AgentsComponent,
+      },
+      {
+        path: 'create-agent',
+        component: CreateAgentComponent,
+      },
+      {
+        path: 'edit-agent',
+        component: EditAgentComponent,
+      },
+      {
+        path: 'fee-type',
+        component: FeeTypeComponent,
+      },
+      {
+        path: 'create-fee-type',
+        component: CreateFeeTypeComponent,
+      },
+      {
+        path: 'edit-fee-type',
+        component: EditFeeTypeComponent,
+      },
+      {
+        path: 'bedrooms',
+        component: BedroomComponent,
+      },
+      {
+        path: 'create-bedroom',
+        component: CreateBedroomComponent,
+      },
+      {
+        path: 'edit-bedroom',
+        component: EditBedroomComponent,
+      },
+      {
+        path: 'customer',
+        component: CustomerComponent
+      },
+      {
+        path: 'create-customer',
+        component: CreateCustomerComponent
+      },
+      {
+        path: 'edit-customer',
+        component: EditCustomerComponent,
+      }
     ],
   },
 ];

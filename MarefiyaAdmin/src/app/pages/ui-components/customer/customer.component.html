@@ -1,0 +1,110 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+        <mat-card-title class="m-b-0">Customer</mat-card-title>
+        <a mat-flat-button color="primary" [routerLink]="['/ui-components/create-customer']" class="download-button">
+            Create Customer
+        </a>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- table-striped -->
+        <div class="table-responsive overflow-auto mt-2">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of customers; let i = index">
+                        <th scope="row">{{ (page - 1) * pageSize + (i + 1) }}</th>
+                        <td>{{ customer.firstname }} {{ customer.fathername }} {{ customer.grandfathername }}</td>
+                        <td>{{ customer.email }}</td>
+                        <td>{{ customer.code }}</td>
+                        <td>{{ customer.phone!.code }} {{ customer.phone!.number }}</td>
+                        <td>
+                            <ng-template [ngIf]="customer.status == true">
+                                <span class="bg-light-accent text-accent rounded f-w-600 p-6 p-y-4 f-s-12">
+                                    Active
+                                </span>
+                            </ng-template>
+                            <ng-template [ngIf]="customer.status == false">
+                                <span class="bg-light-error text-error rounded f-w-600 p-6 p-y-4 f-s-12">
+                                    Inactive
+                                </span>
+                            </ng-template>
+                        </td>
+                        <td style="padding: 0;">
+                            <div class="button-group">
+                                <!-- View Icon -->
+                                <button mat-icon-button class="btn btn-outline-success me-1" matTooltip="View"
+                                    (click)="view(customer)">
+                                    <i-tabler class="routeIcon" name="eye" matListItemIcon></i-tabler>
+                                </button>
+
+                                <!-- Update Icon -->
+                                <button mat-icon-button class="btn btn-outline-primary me-1" matTooltip="edit"
+                                    (click)="edit(customer)">
+                                    <i-tabler class="routeIcon" name="pencil" matListItemIcon></i-tabler>
+                                </button>
+
+                                <!-- Delete Icon -->
+                                <button mat-icon-button class="btn btn-outline-danger me-1" matTooltip="delete"
+                                    (click)="delete(customer)">
+                                    <i-tabler class="routeIcon" name="trash" matListItemIcon></i-tabler>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; margin-top: 20px" *ngIf="customers?.length! <= 0">
+                No customer found
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #viewModal let-modal>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewModalLabel">Customer Details</h5>
+                <button type="button" class="btn-close" (click)="modal.dismiss('Cross click')" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>{{ customer!.firstname }} {{ customer!.fathername }} {{ customer!.grandfathername }}</h4>
+                        <p>Phone: {{ customer!.phone?.code }} {{ customer!.phone?.number }}</p>
+                        <p>
+                            Address: {{ customer!.address?.city }}, {{ customer!.address?.subCity }}
+                        </p>
+                        <p>
+                            Kebele: {{ customer!.address?.kebele }}
+                        </p>
+                        <p>Name: {{ customer!.firstname }} {{ customer!.fathername }} {{ customer!.grandfathername }}</p>
+                        <p>Code: {{ customer!.code }}</p>
+                        <p>Email: {{ customer!.email }}</p>
+                        <!-- <p>
+                            Created Date: {{ formatDateToCustomFormat(customer!.createdAt!) }}
+                        </p> -->
+                        <p *ngIf="customer!.status">
+                            Status:
+                            <span class="badge bg-success">Active</span>
+                        </p>
+                        <p *ngIf="!customer!.status">
+                            Status:
+                            <span class="badge bg-danger">Inactive</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
