@@ -1,0 +1,30 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h3 class="center">Create Bedroom</h3>
+            <button mat-raised-button color="primary" type="submit" (click)="editBedroom()">Save</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Quantity</mat-label>
+                            <input type="number" matInput formControlName="quantity">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

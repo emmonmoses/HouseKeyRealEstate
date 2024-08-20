@@ -9,27 +9,27 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Agents',
     iconName: 'building',
-    route: '/ui-components/company',
+    route: '/ui-components/agent',
+  },
+  {
+    displayName: 'Fee Type',
+    iconName: 'arrows-diff',
+    route: '/ui-components/fee-type',
+  },  
+  {
+    displayName: 'Bedrooms',
+    iconName: 'clock-24',
+    route: '/ui-components/bedrooms',
   },
   {
     displayName: 'Customers',
     iconName: 'steering-wheel',
-    route: '/ui-components/driver',
+    route: '/ui-components/customer',
   },
   {
     displayName: 'Administrators',
     iconName: 'map-pin',
     route: '/ui-components/location',
-  },
-  {
-    displayName: 'Bedrooms',
-    iconName: 'clock-24',
-    route: '/ui-components/timing',
-  },
-  {
-    displayName: 'Service Fees',
-    iconName: 'arrows-diff',
-    route: '/ui-components/tripType',
   },
   {
     displayName: 'Subscriptions',

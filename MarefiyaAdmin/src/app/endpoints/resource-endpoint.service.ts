@@ -5,7 +5,7 @@ import { ConfigService } from '../shared/config.service';
   providedIn: 'root',
 })
 export class ResourceEndpointService {
-  constructor(private configService: ConfigService) {}
+  constructor(private configService: ConfigService) { }
 
   //LogIn endpoints
   get LogInUri(): string {
@@ -50,5 +50,25 @@ export class ResourceEndpointService {
   //Drivers endpoints
   get GetDriverUri(): string {
     return `${this.configService.resourceApiServiceURI}/v1/drivers`;
+  }
+
+  //Agent endpoints
+  get GetAgentUri(): string {
+    return `${this.configService.resourceApiServiceURI}/v1/agents`;
+  }
+
+  //FeeType endpoints
+  get GetFeeTypeUri(): string {
+    return `${this.configService.resourceApiServiceURI}/v1/feetypes`;
+  }
+
+  //Bedroom endpoints
+  get GetBedroomUri(): string {
+    return `${this.configService.resourceApiServiceURI}/v1/bedrooms`;
+  }
+
+  //Bedroom endpoints
+  get GetCustomerUri(): string {
+    return `${this.configService.resourceApiServiceURI}/v1/customers`;
   }
 }

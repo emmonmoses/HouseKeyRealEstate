@@ -1,0 +1,124 @@
+<mat-progress-bar class="mt10" mode="indeterminate" *ngIf="busy"></mat-progress-bar>
+
+<div class="container">
+    <div class="form-wrapper">
+        <div class="header">
+            <h3 class="center">Edit Customer</h3>
+            <button mat-raised-button color="primary" type="submit" (click)="editCustomer()">Save</button>
+        </div>
+
+        <form class="example-form" [formGroup]="form">
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstname">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Father Name</mat-label>
+                            <input matInput formControlName="fathername">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="grandfathername">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Age</mat-label>
+                            <input matInput formControlName="age" type="number">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Gender</mat-label>
+                            <mat-select placeholder="Role" formControlName="gender">
+                                <mat-option value="Male">
+                                    Male
+                                </mat-option>
+                                <mat-option value="Female">
+                                    Female
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <!-- <div class="form-field col-sm-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" type="password">
+                        </mat-form-field>
+                    </div> -->
+                    <div class="form-field col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput type="number" placeholder="911223344" formControlName="phoneNumber">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Role</mat-label>
+                            <mat-select placeholder="Role" formControlName="roleId"
+                                (selectionChange)="onRoleChange($event)">
+                                <mat-option *ngFor="let role of roles" [value]="role.id">
+                                    {{ role.name }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field col-sm-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>City</mat-label>
+                            <input matInput formControlName="city">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Subcity</mat-label>
+                            <input matInput formControlName="subCity">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Kebele</mat-label>
+                            <input matInput formControlName="kebele">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-field col-sm-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>House Number</mat-label>
+                            <input matInput formControlName="houseNumber">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field col-sm-6">
+                        <p>
+                            <mat-slide-toggle formControlName="status">Status</mat-slide-toggle>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
